@@ -29,7 +29,7 @@ const isInclude = (position, selected) => {
 describe('should find the correct sprite', () => {
   const correctness= _.every(positions, (position) => {
     return _.every(maps, (map) => {
-      let selectedSprite = algorithm(map),
+      let selectedSprite = algorithm(map, position),
         minDistance = distance(selectedSprite, position);
         isInclude(position, selectedSprite);
         return _.every(map, _.curryRight(testSprite)(selectedSprite)(minDistance)(position))

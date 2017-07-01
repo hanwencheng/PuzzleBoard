@@ -19,7 +19,7 @@ const sprite = {
 ### Run correctness test
 
 1. `yarn install`
-2. Put module under main.js, which should uses map as argument and exports a function, to get the selected sprite 
+2. Put module under main.js, which should uses map and position as arguments and exports a function, to get the selected sprite 
 3. Run `npm test` 
 4. Bang!
 
