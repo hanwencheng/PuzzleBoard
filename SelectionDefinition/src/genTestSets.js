@@ -1,4 +1,3 @@
-const fs = require('fs');
 const _ = require('lodash');
 
 const
@@ -29,6 +28,7 @@ const mapArray = (arraySize, mapFunction) => _
   .map(mapFunction)
   .value();
 
+// Array( Array ( Object{x, y, width, height}) )
 const maps = mapArray(mapsNumber, ()=> mapArray(sampleSize, generateSprite));
 const positions = mapArray(positionsNumber, ()=> generatePosition());
 
@@ -36,11 +36,10 @@ module.exports = {
   maps, positions
 };
 
-
-// fs.writeFile("./tmp/map", "Hey there!", function(err) {
+// Deprecated with saved file;
+// fs.writeFile("./tmp/map", maps, function(err) {
 //     if(err) {
 //         return console.log(err);
 //     }
-//
 //     console.log("The file was saved!");
 // });

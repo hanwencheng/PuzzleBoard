@@ -18,20 +18,26 @@ const testSprite = (sprite, position, minDistance, selected) => {
   return false
 };
 
-describe('haha', () => {
-  it('works with jasmine', () => {
-    expect(true).toBe(true)
+const isInclude = (position, selected) => {
+  it('position is not included in the selected sprite!', ()=> {
+    const includeX = selected.x <= position.x && position.x <= selected.x + selected.width;
+    const includeY = selected.y <= position.y && position.y <= selected.y + selected.height;
+    expect(includeX && includeY).toBe(true);
+  })
+};
+
+describe('should find the correct sprite', () => {
+  const correctness= _.every(positions, (position) => {
+    return _.every(maps, (map) => {
+      let selectedSprite = algorithm(map),
+        minDistance = distance(selectedSprite, position);
+        isInclude(position, selectedSprite);
+        return _.every(map, _.curryRight(testSprite)(selectedSprite)(minDistance)(position))
+    });
   });
 
-  it('should find the correct sprite', () => {
-    const correctness= _.every(positions, (position)=> {
-      _.every(maps, (map)=>{
-        let selectedSprite = algorithm(map),
-          minDistance = distance(selectedSprite, position);
-        return _.every(map, _.curryRight(testSprite)(selectedSprite)(minDistance)(position))
-      });
-    });
-    expect(correctness).toBe(true);
-  })
+  it('the selected sprite has the least distance to mouse position', () => {
+      expect(correctness).toBe(true);
+  });
 });
 
