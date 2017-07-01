@@ -1,0 +1,30 @@
+{
+  "name": "SelectionDefinition",
+  "version": "1.0.0",
+  "description": "select the sprite which acccording to the mouse position",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack -p",
+    "build": "npm run lint && npm run webpack",
+    "lint": "eslint . --cache",
+    "test": "jasmine",
+    "release": "wnpm-release && addSha",
+    "map": "babel ./src/genMap.es6 --out-file ./src/genMap.js && node ./src/genMap.js",
+    "babel-version": "babel --version"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "babel-core": "6.24.1",
+    "babel-loader": "7.0.0",
+    "babel-preset-env": "1.4.0",
+    "babel-register": "^6.24.1",
+    "eslint": "3.19.0",
+    "eslint-plugin-lodash": "2.4.2",
+    "jasmine": "^2.6.0",
+    "webpack": "2.5.1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "lodash": "^4.17.4"
+  }
+}
