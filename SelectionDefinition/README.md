@@ -20,7 +20,7 @@ const sprite = {
 
 1. `yarn install`
 2. Put module under main.js, which should uses map and position as arguments and exports a function, to get the selected sprite 
-3. Run `npm test` 
+3. Run `yarn test` 
 4. Bang!
 
 I'm use node version v6.10 (anyway babel transpiling is enabled in Test)
